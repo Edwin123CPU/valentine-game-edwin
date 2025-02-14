@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Game</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: pink;
+        }
+        h1 {
+            margin-top: 50px;
+        }
+        .container {
+            position: relative;
+            height: 300px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+        }
+        .yes {
+            background-color: red;
+            color: white;
+            top: 50%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+        }
+        .no {
+            background-color: gray;
+            color: white;
+            top: 50%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Will You Be My Valentine?</h1>
+    <div class="container">
+        <button class="button yes" onclick="showLove()">Yes</button>
+        <button class="button no" onmouseover="moveNo()" onclick="moveNo()">No</button>
+    </div>
+
+    <div id="loveMessage" class="hidden">
+        <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Heart" width="100">
+        <p style="font-size: 20px; font-weight: bold;">Mau jalan kapan sayang?? ❤️</p>
+    </div>
+
+    <script>
+        function moveNo() {
+            let noButton = document.querySelector('.no');
+            let randomX = Math.random() * (window.innerWidth - 100);
+            let randomY = Math.random() * (window.innerHeight - 50);
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
+
+        function showLove() {
+            document.querySelector('.container').classList.add('hidden');
+            document.getElementById('loveMessage').classList.remove('hidden');
+        }
+    </script>
+
+</body>
+</html>
